@@ -5,41 +5,14 @@
  * @note        Command: `npx gltfjsx@6.5.3 -t public/model/cybertruck.gltf`
  */
 import React from 'react'
-import * as THREE from 'three'
 import {useGLTF} from '@react-three/drei'
-import {type GLTF} from 'three-stdlib'
-
-type GLTFResult = GLTF & {
-  nodes: {
-    interior001: THREE.Mesh
-    interior001_1: THREE.Mesh
-    interior001_2: THREE.Mesh
-    interior001_3: THREE.Mesh
-    interior001_4: THREE.Mesh
-    interior001_5: THREE.Mesh
-    interior001_6: THREE.Mesh
-    steer: THREE.Mesh
-    tires001: THREE.Mesh
-    tires001_1: THREE.Mesh
-  }
-  materials: {
-    lights: THREE.MeshStandardMaterial
-    body: THREE.MeshStandardMaterial
-    glass: THREE.MeshStandardMaterial
-    glassframes: THREE.MeshStandardMaterial
-    warninglights: THREE.MeshStandardMaterial
-    black: THREE.MeshStandardMaterial
-    shader: THREE.MeshStandardMaterial
-    gray: THREE.MeshStandardMaterial
-    tires: THREE.MeshStandardMaterial
-    rims: THREE.MeshStandardMaterial
-  }
-}
+import type {CyberTruck as CyberTruckType} from '../../types'
+import './cyber-truck/BodyMaterial.tsx'
 
 export const CyberTruck = (props: React.JSX.IntrinsicElements['group']) => {
   const {nodes, materials} = useGLTF(
     '/r3f-cyber-truck-shader/model/cybertruck.gltf',
-  ) as unknown as GLTFResult
+  ) as unknown as CyberTruckType
   return (
     <group {...props} dispose={null}>
       <mesh
@@ -77,11 +50,9 @@ export const CyberTruck = (props: React.JSX.IntrinsicElements['group']) => {
         geometry={nodes.interior001_5.geometry}
         material={materials.black}
       />
-      <mesh
-        castShadow={true}
-        geometry={nodes.interior001_6.geometry}
-        material={materials.shader}
-      />
+      <mesh castShadow={true} geometry={nodes.interior001_6.geometry}>
+        <cyberTruckBodyMaterial transparent={true} />
+      </mesh>
       <mesh
         castShadow={true}
         geometry={nodes.tires001.geometry}
