@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/d3p1/r3f-cyber-truck-shader/compare/v1.1.0...v1.2.0) (2025-08-07)
+
+
+### Features
+
+* add strip shader effect [[#1](https://github.com/d3p1/r3f-cyber-truck-shader/issues/1)] ([38b169b](https://github.com/d3p1/r3f-cyber-truck-shader/commit/38b169b9c868e607daeab0994a656794173fc478))
+
 # [1.1.0](https://github.com/d3p1/r3f-cyber-truck-shader/compare/v1.0.0...v1.1.0) (2025-08-06)
 
 
