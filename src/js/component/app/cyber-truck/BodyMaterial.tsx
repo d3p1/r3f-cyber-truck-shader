@@ -8,7 +8,9 @@ import vertexShader from './shader/vertex.glsl'
 import fragmentShader from './shader/fragment.glsl'
 
 export const CyberTruckBodyMaterial = shaderMaterial(
-  {},
+  {
+    uTime: 0,
+  },
   vertexShader,
   fragmentShader,
 )
